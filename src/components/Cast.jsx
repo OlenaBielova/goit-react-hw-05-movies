@@ -12,7 +12,7 @@ export const Cast = id => {
 
   if (cast) {
     return (
-      <>
+      <ul>
         {cast.map(({ name, character, cast_id, profile_path }) => (
           <li key={cast_id}>
             <img
@@ -24,7 +24,7 @@ export const Cast = id => {
             <p>{character}</p>
           </li>
         ))}
-      </>
+      </ul>
     );
   }
 };

@@ -14,8 +14,6 @@ export const Home = () => {
     <div>
       Trending movies list
       {movies && <MoviesList movies={movies} />}
-      {/* <MoviesList movies={movies} /> */}
-      {/* <Outlet /> */}
     </div>
   );
 };

@@ -3,7 +3,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { Home } from 'pages/Home';
 import { MovieDetails } from '../pages/MovieDetails';
-import { AppBar } from './AppBar';
+import { AppBar } from './AppBar/AppBar1';
 import { Movies } from '../pages/Movies';
 import { Cast } from './Cast';
 import { Reviews } from './Reviews';

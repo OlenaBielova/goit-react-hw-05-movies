@@ -1,25 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getMovieByName } from '../services/api';
 import { MoviesList } from '../components/MoviesList';
 
 export const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('query');
+  const [query, setQuery] = useState(() => searchParams.get('query') ?? '');
+  const searchQuery = searchParams.get('query');
   const [movies, setMovies] = useState([]);
 
-  const handleInputChange = e => setSearchParams({ query: e.target.value });
+  const handleInputChange = e => setQuery(e.target.value);
 
   const handleSearchFormSubmit = e => {
     e.preventDefault();
     document.getElementById('searchForm').reset();
 
-    if (query === '') {
-      alert('Type your search query!');
-    } else {
-      getMovieByName(query).then(setMovies);
+    if (query !== '') {
+      setSearchParams({ query: query });
+      //   getMovieByName(query).then(setMovies);
     }
   };
+
+  useEffect(() => {
+    if (searchQuery) {
+      getMovieByName(searchQuery).then(setMovies);
+    }
+  }, [searchQuery]);
 
   return (
     <>
