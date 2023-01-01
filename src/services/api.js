@@ -13,30 +13,25 @@ export const getTrendingMovies = async () => {
   return response.data.results;
 };
 
-export const getMovieByName = async (query) => {
+export const getMovieByName = async query => {
   const response = await axios.get(`/search/movie?query=${query}`);
-//   console.log(response);
+  //   console.log(response);
   return response.data.results;
 };
 
-export const getMovieByID = async (id) => {
+export const getMovieByID = async id => {
   const response = await axios.get(`/movie/${id}`);
   return response.data;
 };
 
-export const getMovieCast = async (id) => {
+export const getMovieCast = async id => {
   const response = await axios.get(`/movie/${id}/credits`);
-//   console.log(response);
-  return response.data;
+  // console.log(response.data.cast);
+  return response.data.cast;
 };
 
-export const getMovieReviews= async (id) => {
+export const getMovieReviews = async id => {
   const response = await axios.get(`/movie/${id}/reviews`);
-//   console.log(response);
+  //   console.log(response);
   return response.data;
 };
-
-// getMovieByName('next');
-
-// getMovieCast(661374);
-// getMovieReviews(661374);

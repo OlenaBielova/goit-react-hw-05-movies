@@ -1,8 +1,3 @@
-
 export const Reviews = () => {
-    return (
-        <p>
-            Reviews
-        </p>
-    )
+  return <p>Reviews</p>;
 };

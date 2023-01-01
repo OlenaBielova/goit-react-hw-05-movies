@@ -1,8 +1,3 @@
-
 export const NotFound = () => {
-    return (
-        <p>
-            Такої сторінки не існує
-        </p>
-    )
+  return <p>Такої сторінки не існує</p>;
 };
