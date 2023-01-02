@@ -10,12 +10,12 @@ gap 20px;
 `;
 
 export const ImgBox = styled.div`
-width: 100px;
-height: 150px;
-background-color:lightgray;
-background-image: url('http://via.placeholder.com/100x150');
+  width: 100px;
+  height: 150px;
+  background-color: lightgray;
+  background-image: url('http://via.placeholder.com/100x150');
 `;
 
 export const ItemBox = styled.li`
-width: 170px;
+  width: 170px;
 `;

@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovieReviews } from '../services/api';
 
-export const Reviews = id => {
+const Reviews = id => {
   const [reviews, setReviews] = useState(null);
   const { movieId } = useParams();
 
@@ -11,7 +11,6 @@ export const Reviews = id => {
   }, [movieId]);
 
   if (reviews) {
-    console.log(reviews);
     return (
       <>
         {reviews.map(({ author, content, id }) => (
@@ -24,3 +23,5 @@ export const Reviews = id => {
     );
   }
 };
+
+export default Reviews;

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { getMovieCast } from '../services/api';
 import { CastList, ImgBox, ItemBox } from './Cast.styled';
 
-export const Cast = id => {
+const Cast = id => {
   const [cast, setCast] = useState(null);
   const { movieId } = useParams();
 
@@ -18,9 +18,9 @@ export const Cast = id => {
           <ItemBox key={cast_id}>
             <ImgBox>
               <img
-              src={`https://image.tmdb.org/t/p/w300${profile_path}`}
-              width="100px"
-              alt=""
+                src={`https://image.tmdb.org/t/p/w300${profile_path}`}
+                width="100px"
+                alt=""
               />
             </ImgBox>
             <p>{name}</p>
@@ -31,3 +31,5 @@ export const Cast = id => {
     );
   }
 };
+
+export default Cast;
