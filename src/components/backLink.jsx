@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const BackLink = ({ to, children }) => {
   return (
     <Link to={to}>
-      <HiArrowLeft size="24" />
+      <HiArrowLeft size="20" />
       {children}
     </Link>
   );

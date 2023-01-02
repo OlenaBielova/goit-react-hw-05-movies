@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovieCast } from '../services/api';
+import { CastList, ImgBox, ItemBox } from './Cast.styled';
 
 export const Cast = id => {
   const [cast, setCast] = useState(null);
@@ -12,19 +13,21 @@ export const Cast = id => {
 
   if (cast) {
     return (
-      <ul>
+      <CastList>
         {cast.map(({ name, character, cast_id, profile_path }) => (
-          <li key={cast_id}>
-            <img
+          <ItemBox key={cast_id}>
+            <ImgBox>
+              <img
               src={`https://image.tmdb.org/t/p/w300${profile_path}`}
-              width="150px"
+              width="100px"
               alt=""
-            />
+              />
+            </ImgBox>
             <p>{name}</p>
             <p>{character}</p>
-          </li>
+          </ItemBox>
         ))}
-      </ul>
+      </CastList>
     );
   }
 };

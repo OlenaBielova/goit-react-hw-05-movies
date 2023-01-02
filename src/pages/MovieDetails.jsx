@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Outlet, Link, useLocation } from 'react-router-dom';
 import { getMovieByID } from '../services/api';
 import { BackLink } from '../components/backLink';
-import { Wrapper } from './MovieDetails.styled';
+import { Container, Wrapper,Img } from './MovieDetails.styled';
 
 export const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
@@ -19,19 +19,20 @@ export const MovieDetails = () => {
     const genresList = genres.map(genre => genre.name + ' ');
 
     return (
-      <>
+      <div>
         <BackLink to={backLinkHref}>Go back</BackLink>
         {/* <Link to={location.state.from}>Back to products</Link>; */}
-        <img
+            <Container>
+                <Img
           src={`https://image.tmdb.org/t/p/w300${poster_path}`}
           alt={`${title}`}
         />
         <div>
           <h2>{title}</h2>
-          <p>Rating: {Math.round(vote_average * 10)}%</p>
+          <h3>Rating: {Math.round(vote_average * 10)}%</h3>
           <h3>Overview</h3>
           <p>{overview}</p>
-          <p>Genres: {genresList}</p>
+          <h3>Genres: {genresList}</h3>
           <Wrapper>
             <Link to={`cast`}>Cast</Link>
             <Link to={`reviews`}>Reviews</Link>
@@ -39,7 +40,8 @@ export const MovieDetails = () => {
 
           <Outlet />
         </div>
-      </>
+        </Container>
+      </div>
     );
   }
 };
